@@ -19,6 +19,19 @@ const router = new VueRouter({
     mode: 'history'
 });
 
+//Guard beforeEnter
+//postoje tri mesta na kojima user moze da se proveri da li je useru dozvoljeno da udje na komp 
+//1gb) ova funkcija se okine na svakoj akciji u vezi sa rutom znaci pri svakom pokretu bilo koje rute
+//ovo najcesce koristimo za veoma opste provere jel se svaki put okida
+
+//u slucaju da necemo stalno da ga koristimo i hocemo da zastitimo samo odredjene rute --> 2bg
+//ili iz odredjene komponente 3bg
+router.beforeEach((to, from, next) => {
+
+  next(true)
+  next(false)
+});
+
 new Vue({
   render: h => h(App),
   //3. registujemo router glavnoj Vue instanci
